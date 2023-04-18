@@ -55,7 +55,7 @@ class Prism:
     def prism_vertices(radius=1, height=1, start=[0,0,0]):
         base_pentagon = Pentagon(radius, start)
         upper_start = start[:]
-        upper_start[2] = height
+        upper_start[2] = start[2] + height
         upper_pentagon = Pentagon(radius, upper_start)
 
         return base_pentagon + upper_pentagon

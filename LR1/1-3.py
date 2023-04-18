@@ -3,6 +3,7 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 import math
+from Prism import Prism
 
 def main():
     pygame.init()
@@ -40,6 +41,7 @@ def main():
         Prism(radius=3, height=6, color=(1,0,0)).draw()
         Prism(radius=2, height=2, color=(2,1,0)).draw()
         Prism(radius=0.5, height=2, start=[1,-2,-3], color=(2,1,4)).draw()
+
         pygame.display.flip()
         pygame.time.wait(10)
 main()
