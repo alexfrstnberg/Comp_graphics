@@ -40,7 +40,7 @@ def main():
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         Prism(radius=3, height=6, color=(1,0,0)).draw()
         Prism(radius=2, height=2, color=(2,1,0)).draw()
-        Prism(radius=0.5, height=2, start=[1,-2,-3], color=(2,1,4)).draw()
+        Prism(radius=0.5, height=2, x=1, y=-2, z=-3, color=(2,1,4)).draw()
 
         pygame.display.flip()
         pygame.time.wait(10)
