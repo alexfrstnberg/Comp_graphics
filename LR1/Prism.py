@@ -93,7 +93,7 @@ class Prism:
             self.y -= speed
 
     def prism_vertices(self, radius=1, height=1):
-        base_pentagon = Pentagon(radius, x=0, y=0, z=0)
+        base_pentagon = Pentagon(radius, x=self.x, y=self.y, z=self.z)
         z = self.z + height
         upper_pentagon = Pentagon(radius, x=0, y=0, z=z)
 
