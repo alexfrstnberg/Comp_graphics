@@ -10,22 +10,18 @@ from OpenGL.GLU import *
 def rotate_point(point, angle, axis):
     # кут обертання з градусів в радіани
     angle = radians(angle)
-    
     # координати точки
     x, y, z = point
-    
     # нові координати після обертання навколо осі X
     if axis == 'x':
         new_y = y*cos(angle) - z*sin(angle)
         new_z = y*sin(angle) + z*cos(angle)
         return (x, new_y, new_z)
-    
     # нові координати після обертання навколо осі Y
     elif axis == 'y':
         new_x = x*cos(angle) + z*sin(angle)
         new_z = -x*sin(angle) + z*cos(angle)
         return (new_x, y, new_z)
-    
     # нові координати після обертання навколо осі Z
     elif axis == 'z':
         new_x = x*cos(angle) - y*sin(angle)
