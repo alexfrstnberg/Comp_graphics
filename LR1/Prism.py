@@ -71,7 +71,7 @@ class Prism:
     def choose_color(self, vertex):
         if self.color == 'random':
            return self.COLORS[vertex]
-        else: 
+        else:
             return self.color
 
     def construct_prism(self):
@@ -83,19 +83,19 @@ class Prism:
         glEnd()
 
     def update_position(self, direction, speed):
-        if direction == 'right':
-            self.x += speed
-        elif direction == 'left':
-            self.x -= speed
-        elif direction == 'up':
-            self.y += speed
-        elif direction == 'down':
-            self.y -= speed
+      if direction == 'right':
+        self.x += speed
+      elif direction == 'left':
+        self.x -= speed
+      elif direction == 'up':
+        self.y += speed
+      elif direction == 'down':
+        self.y -= speed
 
     def prism_vertices(self, radius=1, height=1):
         base_pentagon = Pentagon(radius, x=self.x, y=self.y, z=self.z)
         z = self.z + height
-        upper_pentagon = Pentagon(radius, x=0, y=0, z=z)
+        upper_pentagon = Pentagon(radius, x=self.x, y=self.y, z=z)
 
         return base_pentagon + upper_pentagon
 

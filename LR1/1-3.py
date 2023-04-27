@@ -4,19 +4,25 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 import math
 from Prism import Prism
+from random import randint
 
 def main():
     pygame.init()
-    display = (900,800)
+    display = (1200,1200)
     pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
 
     gluPerspective(45, (display[0] / display[1]), 0.5, 40.0)
 
-    glTranslatef(0.5,-0.5,-15)
+    glTranslatef(0.5,-0.5,-30)
     glRotatef(40,-1.5,0,0.3)
 
     mouse_pressed = False
     mouse_pos_prev = None
+
+    prisms = []
+    for i in range(51):
+      x, y, z = randint(-5, 5), randint(-5, 5), randint(-5, 5)
+      prisms.append(Prism(radius=randint(1, 4), height=randint(1,8), x=x, y=y, z=z, color=(randint(0,1), randint(0,1), randint(0,1))))
 
     while True:
         for event in pygame.event.get():
@@ -38,9 +44,12 @@ def main():
             mouse_pos_prev = mouse_pos
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+        # for prism in prisms:
+        #   prism.draw()
         Prism(radius=3, height=6, color=(1,0,0)).draw()
         Prism(radius=2, height=2, color=(2,1,0)).draw()
-        Prism(radius=0.5, height=2, x=1, y=-2, z=-3, color=(2,1,4)).draw()
+        Prism(radius=0.5, height=2, x=1, y=-2, z=-1, color=(2,1,4)).draw()
 
         pygame.display.flip()
         pygame.time.wait(10)
