@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib as plt
 from matplotlib.pyplot import plot, show
+
 def jacobi(A, b, x0, tol, n_iterations=300):
     """
     Performs Jacobi iterations to solve the line system of
@@ -74,7 +75,7 @@ def cubic_spline_koefs(x, y, tol = 1e-100):
 
     ### Solves for c in Ac = b
     print('Jacobi Method Output:')
-    c = jacobi(A, b, np.zeros(len(A)), tol = tol, n_iterations=1000)
+    c = jacobi(A, b, np.zeros(len(A)), tol = tol)
 
     ### Solves for d and b
     d = np.zeros(shape = (size-1,1))
@@ -89,7 +90,7 @@ def cubic_spline(X, Y):
   b, c, d  = cubic_spline_koefs(X, Y, tol = 1e-100)
   new_x, new_y = [], []
   for i, (xi, yi) in enumerate(zip(X[:-1], Y[:-1])):
-    for x in np.arange(xi, X[i+1], 0.00000001):
+    for x in np.arange(xi, X[i+1], 0.001):
       Si = yi + b[i] * (x-xi) + c[i] * (x-xi)**2 + d[i] * (x-xi)**3
       new_x.append(x)
       new_y.append(Si)

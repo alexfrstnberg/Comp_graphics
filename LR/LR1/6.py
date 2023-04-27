@@ -7,13 +7,13 @@ from Prism import Prism
 
 def main():
     pygame.init()
-    display = (1200, 800)
+    display = (900, 800)
     pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
 
-    gluPerspective(45, (display[0]/display[1]), 0.1, 50.0)
+    gluPerspective(50, (display[0]/display[1]), 0.5, 50.0)
 
-    glTranslatef(0.0, 0.0, -10)
-    glRotatef(80,-1,0,0)
+    glTranslatef(0.0, 0.0, -15)
+    glRotatef(95,1,0,0)
 
     t = 0
     scale = 1
@@ -32,7 +32,7 @@ def main():
 
         glTranslatef(x, y, z)
         glScalef(scale, scale, scale)
-        Prism(height=2.5, start=[0,0,-2]).draw()
+        Prism(height=2.5).draw()
         glPopMatrix()
 
         t += 0.02
